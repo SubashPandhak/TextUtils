@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import "./App.css";
-import About from "./components/About";
-import Navbar from "./components/Navbar";
-import Textform from "./components/Textform";
-import Alert from "./components/Alert";
+import "../App.css";
+import About from "./About";
+import Navbar from "./Navbar";
+import Textform from "./Textform";
+import Alert from "./Alert";
 
 export default function Home() {
   let [mode, setMode] = useState("light");
@@ -51,23 +51,3 @@ export default function Home() {
     </>
   );
 }
-
-// import React from "react";
-// // import { BrowserRouter, Routes, Route } from "react-router-dom";
-// // import Home from "./components/Home";
-// // import About from "./components/About";
-
-// function App() {
-//   return (
-//     <>
-//       {/* <BrowserRouter>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/about" element={<About />} />
-//         </Routes>
-//       </BrowserRouter> */}
-//     </>
-//   );
-// }
-
-// export default App;
