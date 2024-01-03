@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import HomeTheme from "./HomeTheme";
 import Alert from "./Alert";
 
 export default function About(props) {
-  // let [myStyle, setMyStyle] = useState({
-  //   color: "black",
-  //   backgroundColor: "white",
-  // });
-
   let myStyle = {
     color: props.mode === "dark" ? "white" : "#2b3036",
     backgroundColor: props.mode === "dark" ? "#2b3036" : "white",

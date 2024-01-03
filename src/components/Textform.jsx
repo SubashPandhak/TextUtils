@@ -1,22 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import PropTypes from "prop-types";
 
 export default function Textform(props) {
-  // let newColor
-  // const changeColor = () => {
-  //   if(props.colour === "#013501"){
-  //     return newColor = "success"
-  //   }else if(props.colour === "#3b0101"){
-  //     return newColor = "danger"
-  //   }else if(props.colour === "#050541"){
-  //     return newColor = "primary"
-  //   }else{
-  //    return newColor = "primary"
-  //   }
-  //   }
-  // }
-
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
