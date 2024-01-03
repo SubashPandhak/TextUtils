@@ -7,6 +7,12 @@ export default function Navbar(props) {
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      style={{
+        boxShadow:
+          props.mode === "dark"
+            ? "0 -3px 2px 2px white"
+            : "0 -3px 2px 2px black",
+      }}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -33,7 +39,36 @@ export default function Navbar(props) {
             </Link>
           </div>
         </div>
-
+        <div className="d-flex">
+          <div
+            className="bg-primary rounded mx-2"
+            onClick={() => {
+              props.toggleMode("primary");
+            }}
+            style={{ height: "30px", width: "30px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-success rounded mx-2"
+            onClick={() => {
+              props.toggleMode("success");
+            }}
+            style={{ height: "30px", width: "30px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-danger rounded mx-2"
+            onClick={() => {
+              props.toggleMode("danger");
+            }}
+            style={{ height: "30px", width: "30px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-warning rounded mx-2"
+            onClick={() => {
+              props.toggleMode("warning");
+            }}
+            style={{ height: "30px", width: "30px", cursor: "pointer" }}
+          ></div>
+        </div>
         <div
           className={`form-check form-switch mx-2 text-${
             props.mode === "light" ? "dark" : "light"
@@ -44,10 +79,12 @@ export default function Navbar(props) {
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"
-            onClick={props.toggleMode}
+            onClick={() => {
+              props.toggleMode("dark");
+            }}
           />
           <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-            Enable DarkMode
+            Toggle Mode
           </label>
         </div>
       </div>
