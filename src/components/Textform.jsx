@@ -78,22 +78,39 @@ export default function Textform(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary my-2" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary my-2"
+          onClick={handleUpClick}
+        >
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleLoClick}
+        >
           Convert to Lowercase
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-primary mx-2 my-2"
           onClick={handleClearClick}
         >
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={speak}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={speak}
+        >
           Speak
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleCopy}
+        >
           Copy
         </button>
       </div>
@@ -121,10 +138,7 @@ export default function Textform(props) {
           Minutes read
         </p>
         <h2>Preview</h2>
-        <p>{text}</p>
-        <p>Shortest word length is 2</p>
-
-        <p>Longest word length is 5</p>
+        <p>{text.length > 0 ? text : "Enter the text to preview"}</p>
       </div>
     </>
   );

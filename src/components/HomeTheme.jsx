@@ -8,12 +8,12 @@ export default function HomeTheme(props) {
       props.setMode("dark");
       document.body.style.backgroundColor = "rgb(34 41 48)";
       props.showAlert("Dark mode has been enabled.", "success");
-      document.title = "TextUtils - Dark Mode";
+      // document.title = "TextUtils - Dark Mode";
     } else {
       props.setMode("light");
       document.body.style.backgroundColor = "white";
       props.showAlert("Light mode has been enabled.", "success");
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
   return (
