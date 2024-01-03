@@ -2,25 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../../Styles/navbar.style.css";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-  const handleColorChange = (color) => {
-    if (props.colour === "white") {
-      props.setColour(color);
-      document.body.style.backgroundColor = color;
-    } else {
-      props.setColour("white");
-      document.body.style.backgroundColor = "white";
-    }
-  };
+  // const handleColorChange = (color) => {
+  //   if (props.colour === "white") {
+  //     props.setColour(color);
+  //     document.body.style.backgroundColor = color;
+  //   } else {
+  //     props.setColour("white");
+  //     document.body.style.backgroundColor = "white";
+  //   }
+  // };
 
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           {props.title}
         </a>
         <button
@@ -36,16 +36,16 @@ export default function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link className="nav-link active" to="/">
               Home
-            </a>
-            <a className="nav-link" href="#">
+            </Link>
+            <Link className="nav-link" to="/About">
               {props.aboutText}
-            </a>
+            </Link>
           </div>
         </div>
-        <button
-          className="btn btn-success mx-1 btns "
+        {/* <button
+          className="btn btn-success mx-1  btns "
           onClick={() => handleColorChange("#013501")}
         ></button>
         <button
@@ -55,7 +55,7 @@ export default function Navbar(props) {
         <button
           className="btn btn-primary mx-1 btns"
           onClick={() => handleColorChange("#050541")}
-        ></button>
+        ></button> */}
         <div
           className={`form-check form-switch mx-2 text-${
             props.mode === "light" ? "dark" : "light"

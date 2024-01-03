@@ -1,12 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import About from "./components/About";
-import Navbar from "./components/Navbar";
-import Textform from "./components/Textform";
-import Alert from "./components/Alert";
+import { useState } from "react";
 
-export default function Home() {
+function App() {
   let [mode, setMode] = useState("light");
   let [alert, setAlert] = useState(null);
   const [colour, setColour] = useState("white");
@@ -21,53 +19,42 @@ export default function Home() {
     }, 2000);
   };
 
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "rgb(34 41 48)";
-      showAlert("Dark mode has been enabled.", "success");
-      document.title = "TextUtils - Dark Mode";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enabled.", "success");
-      document.title = "TextUtils - Light Mode";
-    }
-  };
   return (
     <>
-      <Navbar
-        title={"TextUtils"}
-        mode={mode}
-        colour={colour}
-        setColour={setColour}
-        toggleMode={toggleMode}
-      />
-      <div className="container my-3">
-        <Alert alert={alert} />
-        <Textform mode={mode} colour={colour} showAlert={showAlert} />
-      </div>
-      <About />
+      {
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  mode={mode}
+                  color={colour}
+                  setColor={setColour}
+                  setMode={setMode}
+                  showAlert={showAlert}
+                  alert={alert}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <About
+                  mode={mode}
+                  color={colour}
+                  setColor={setColour}
+                  setMode={setMode}
+                  showAlert={showAlert}
+                  alert={alert}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      }
     </>
   );
 }
 
-// import React from "react";
-// // import { BrowserRouter, Routes, Route } from "react-router-dom";
-// // import Home from "./components/Home";
-// // import About from "./components/About";
-
-// function App() {
-//   return (
-//     <>
-//       {/* <BrowserRouter>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/about" element={<About />} />
-//         </Routes>
-//       </BrowserRouter> */}
-//     </>
-//   );
-// }
-
-// export default App;
+export default App;

@@ -78,19 +78,22 @@ export default function Textform(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button className="btn btn-primary my-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleClearClick}
+        >
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={speak}>
+        <button className="btn btn-primary mx-2 my-2" onClick={speak}>
           Speak
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
           Copy
         </button>
       </div>
@@ -100,11 +103,23 @@ export default function Textform(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {wordLength.length > 1 ? wordLength.length - 1 : 0} words,{" "}
-          {text.replace(/\s+/g, "").length} characters,{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words, {text.replace(/\s+/g, "").length} characters,{" "}
           {text.split("\n").length} lines
         </p>
-        <p>{(0.008 * text.split(" ").length).toFixed(2)} Minutes read</p>
+        <p>
+          {(
+            0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          ).toFixed(2)}{" "}
+          Minutes read
+        </p>
         <h2>Preview</h2>
         <p>{text}</p>
         <p>Shortest word length is 2</p>

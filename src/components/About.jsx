@@ -1,32 +1,34 @@
 import React, { useState } from "react";
+import HomeTheme from "./HomeTheme";
+import Alert from "./Alert";
 
-export default function About() {
-  let [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+export default function About(props) {
+  // let [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
-  let [btntext, setBtnText] = useState("Enable dark mode");
-
-  const changeMyStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setBtnText("Enable light mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable dark mode");
-    }
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#2b3036",
+    backgroundColor: props.mode === "dark" ? "#2b3036" : "white",
   };
 
   return (
-    <>
-      <div className="container " style={myStyle}>
+    <HomeTheme
+      mode={props.mode}
+      color={props.colour}
+      setColor={props.setColour}
+      setMode={props.setMode}
+      showAlert={props.showAlert}
+    >
+      <Alert alert={props.alert} />
+      <div
+        className="container "
+        style={{
+          backgroundColor: props.mode === "dark" ? "rgb(34 41 48)" : "white",
+          color: props.mode === "dark" ? "white" : "#2b3036",
+        }}
+      >
         <h2 className="my-2 mx-3"> About Us</h2>
         <div className="accordion" id="accordionExample" style={myStyle}>
           <div className="accordion-item" style={myStyle}>
@@ -40,7 +42,7 @@ export default function About() {
                 aria-controls="collapseOne"
                 style={myStyle}
               >
-                Accordion Item #1
+                Analyze your text
               </button>
             </h2>
             <div
@@ -48,16 +50,12 @@ export default function About() {
               className="accordion-collapse collapse show"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body">
+              <div className="accordion-body" style={myStyle}>
                 <strong>This is the first item's accordion body.</strong> It is
                 shown by default, until the collapse plugin adds the appropriate
                 classNamees that we use to style each element. These classNamees
                 control the overall appearance, as well as the showing and
-                hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                hiding via CSS transitions.
               </div>
             </div>
           </div>
@@ -72,7 +70,7 @@ export default function About() {
                 aria-controls="collapseTwo"
                 style={myStyle}
               >
-                Accordion Item #2
+                Free to use
               </button>
             </h2>
             <div
@@ -85,25 +83,12 @@ export default function About() {
                 hidden by default, until the collapse plugin adds the
                 appropriate classNamees that we use to style each element. These
                 classNamees control the overall appearance, as well as the
-                showing and hiding via CSS transitions. You can modify any of
-                this with custom CSS or overriding our default variables. It's
-                also worth noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                showing and hiding via CSS transitions.
               </div>
             </div>
           </div>
-          <div className="container my-3">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={changeMyStyle}
-            >
-              {btntext}
-            </button>
-          </div>
         </div>
       </div>
-    </>
+    </HomeTheme>
   );
 }
