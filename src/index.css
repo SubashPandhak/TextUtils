@@ -3,3 +3,19 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+.bg-success {
+  background-color: #22470a !important;
+}
+
+.bg-primary {
+  background-color: #081039 !important;
+}
+
+.bg-danger {
+  background-color: #360606 !important;
+}
+
+.bg-warning {
+  background-color: #343106 !important;
+}

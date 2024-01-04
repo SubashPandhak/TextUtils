@@ -12,13 +12,15 @@ function Home(props) {
       setMode={props.setMode}
       showAlert={props.showAlert}
     >
-      <div className="container my-3">
+      <div style={{ marginTop: "60px" }}>
         <Alert alert={props.alert} />
-        <Textform
-          mode={props.mode}
-          colour={props.colour}
-          showAlert={props.showAlert}
-        />
+        <div className="container my-3">
+          <Textform
+            mode={props.mode}
+            colour={props.colour}
+            showAlert={props.showAlert}
+          />
+        </div>
       </div>
     </HomeTheme>
   );

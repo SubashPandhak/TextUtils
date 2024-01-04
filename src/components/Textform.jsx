@@ -28,10 +28,7 @@ export default function Textform(props) {
   };
 
   const handleCopy = () => {
-    let text = document.getElementById("my-box");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to clipboard", "info");
   };
 
@@ -50,7 +47,7 @@ export default function Textform(props) {
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <div className="mb-3">
-          <h1>Enter the text to analyze below</h1>
+          <h2>Enter the text to analyze below</h2>
           <textarea
             className="form-control"
             value={text}
@@ -104,15 +101,20 @@ export default function Textform(props) {
         className="container my-3"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
-        <h2>Your text summary</h2>
+        <h3>Your text summary</h3>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
           words, {text.replace(/\s+/g, "").length} characters,{" "}
-          {text.split("\n").length} lines
+          {
+            text.split("\n").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          lines
         </p>
         <p>
           {(
@@ -123,7 +125,7 @@ export default function Textform(props) {
           ).toFixed(2)}{" "}
           Minutes read
         </p>
-        <h2>Preview</h2>
+        <h3>Preview</h3>
         <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
     </>

@@ -26,15 +26,6 @@ export default function HomeTheme(props) {
       console.log(cls);
     }
   };
-  // } else if (props.mode === "light") {
-  //   props.setMode("dark");
-  // document.body.style.backgroundColor = "rgb(34 41 48)";
-  //   props.showAlert("Dark mode has been enabled.", "success");
-  // } else {
-  //   props.setMode("light");
-  //   document.body.style.backgroundColor = "white";
-  //   props.showAlert("Light mode has been enabled.", "success");
-  // }
   return (
     <>
       <Navbar

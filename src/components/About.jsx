@@ -16,15 +16,19 @@ export default function About(props) {
       setMode={props.setMode}
       showAlert={props.showAlert}
     >
-      <Alert alert={props.alert} />
-      <div
-        className="container "
-        style={{
-          backgroundColor: props.mode === "dark" ? "rgb(34 41 48)" : "white",
-          color: props.mode === "dark" ? "white" : "#2b3036",
-        }}
-      >
-        <h2 className="my-2 mx-3"> About Us</h2>
+      <div style={{ marginTop: "60px", width: "100vw" }}>
+        <Alert alert={props.alert} />
+      </div>
+      <div className="container">
+        <h2
+          className="my-2"
+          style={{
+            color: props.mode === "dark" ? "white" : "#2b3036",
+          }}
+        >
+          {" "}
+          About Us
+        </h2>
         <div className="accordion" id="accordionExample" style={myStyle}>
           <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header">
