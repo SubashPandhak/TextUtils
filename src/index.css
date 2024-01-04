@@ -19,3 +19,7 @@
 .bg-warning {
   background-color: #343106 !important;
 }
+
+.accordion-button::after {
+  filter: invert(1);
+}

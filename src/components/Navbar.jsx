@@ -8,7 +8,6 @@ import { useRef } from "react";
 
 export default function Navbar(props) {
   let location = useLocation();
-  console.log(location);
 
   const homeLink = useRef();
   const aboutLink = useRef();

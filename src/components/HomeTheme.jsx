@@ -17,13 +17,11 @@ export default function HomeTheme(props) {
       removeBodyClasses();
       document.body.classList.add("bg-" + cls);
       props.showAlert("Dark mode has been enabled.", "success");
-      console.log(cls);
     } else if (props.mode === "dark") {
       props.setMode("light");
       removeBodyClasses();
       document.body.classList.add("bg-light");
       props.showAlert("Light mode has been enabled.", "success");
-      console.log(cls);
     }
   };
   return (
