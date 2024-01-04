@@ -50,11 +50,9 @@ export default function About(props) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classNamees that we use to style each element. These classNamees
-                control the overall appearance, as well as the showing and
-                hiding via CSS transitions.
+                <strong>TextUtils</strong> is a app that is used to manipulate
+                your text that includes text converter, text copy, text reader,
+                text clear, etc.
               </div>
             </div>
           </div>
@@ -78,11 +76,8 @@ export default function About(props) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classNamees that we use to style each element. These
-                classNamees control the overall appearance, as well as the
-                showing and hiding via CSS transitions.
+                <strong>TextUtils</strong> is free to use app that is available
+                in netlify.
               </div>
             </div>
           </div>
